@@ -434,7 +434,7 @@
 				DEVELOPMENT_TEAM = RE35XLAPV6;
 				INFOPLIST_FILE = "test-3d/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "dojo.test-3d";
+				PRODUCT_BUNDLE_IDENTIFIER = dojo.TipCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,7 +449,7 @@
 				DEVELOPMENT_TEAM = RE35XLAPV6;
 				INFOPLIST_FILE = "test-3d/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "dojo.test-3d";
+				PRODUCT_BUNDLE_IDENTIFIER = dojo.TipCalculator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

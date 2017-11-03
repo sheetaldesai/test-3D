@@ -1,10 +1,4 @@
-//
-//  UIBezierPathExtension.swift
-//  SwiftSpace
-//
-//  Created by Simon Gladman on 07/11/2015.
-//  Copyright © 2015 Simon Gladman. All rights reserved.
-//
+
 import UIKit
 
 extension UIBezierPath

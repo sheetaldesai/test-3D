@@ -1,10 +1,4 @@
-//
-//  ViewController.swift
-//  SwiftSpace
-//
-//  Created by Simon Gladman on 20/08/2015.
-//  Copyright © 2015 Simon Gladman. All rights reserved.
-//
+
 
 import UIKit
 import SceneKit
@@ -32,19 +26,42 @@ class ViewController: UIViewController
     let hermitePath = UIBezierPath()
     var interpolationPoints = [CGPoint]()
     
+    var strokColor:UIColor = .white
+    var lineWidth:CGFloat = 10
+    
     override func viewDidLoad()
     {
-        guard motionManager.isGyroAvailable else
+        guard motionManager.isDeviceMotionAvailable else
         {
             fatalError("CMMotionManager not available.")
         }
         
         super.viewDidLoad()
+//        //   Set bottom toolbar
+//
+//        let title = UIBarButtonItem(title: "3D Draw", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        let title = UIBarButtonItem(title: "flexmonkey.co.uk", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        let blue =  UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(self.changeColorBlue))
+        blue.tintColor = .blue
+        let green =  UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(self.changeColorGreen))
+        green.tintColor = .green
+        let yellow =  UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(self.changeColorYellow))
+        yellow.tintColor = .yellow
+        let orange =  UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(self.changeColorOrange))
+        orange.tintColor = .orange
+        let red =  UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(self.changeColorRed))
+        red.tintColor = .red
+        let thin =  UIBarButtonItem(title:"|",  style: .plain, target: self, action: #selector(self.changeThin))
+        let thick =  UIBarButtonItem(title:"||", style: .plain, target: self, action: #selector(self.changeThick))
+       
+        
+        
+        
         let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let clearButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.trash, target: self, action: "clear")
-        buttonBar.items = [title, spacer, clearButton]
+        let clearButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.trash, target: self, action: #selector(self.clear))
+        
+        
+        buttonBar.items = [blue, green, yellow, orange, red, thin, thick, spacer, clearButton]
         
         view.addSubview(sceneKitView)
         view.addSubview(buttonBar)
@@ -75,7 +92,7 @@ class ViewController: UIViewController
         
         // motion manager
         
-//        let queue = OperationQueue.main
+
         let myq = OperationQueue()
         
         motionManager.deviceMotionUpdateInterval = 1 / 30
@@ -99,6 +116,28 @@ class ViewController: UIViewController
         
     }
     
+    @objc func changeColorBlue(){
+        strokColor = .blue
+    }
+    @objc func changeColorGreen(){
+        strokColor = .green
+    }
+    @objc func changeColorYellow(){
+        strokColor = .yellow
+    }
+    @objc func changeColorOrange(){
+        strokColor = .orange
+    }
+    @objc func changeColorRed(){
+        strokColor = .red
+    }
+    @objc func changeThin(){
+        lineWidth = 5
+    }
+    @objc func changeThick(){
+        lineWidth = 20
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
         super.touchesBegan(touches, with: event)
@@ -115,9 +154,9 @@ class ViewController: UIViewController
             
             scene.rootNode.addChildNode(currentDrawingNode)
             
-            currentDrawingLayer.strokeColor = UIColor.white.cgColor
+            currentDrawingLayer.strokeColor = strokColor.cgColor//UIColor.orange.cgColor//
             currentDrawingLayer.fillColor = nil
-            currentDrawingLayer.lineWidth = 10
+            currentDrawingLayer.lineWidth = lineWidth
             currentDrawingLayer.lineJoin = kCALineJoinRound
             currentDrawingLayer.lineCap = kCALineCapRound
             currentDrawingLayer.frame = CGRect(x: 0, y: 0, width: currentDrawingLayerSize, height: currentDrawingLayerSize)
@@ -173,11 +212,12 @@ class ViewController: UIViewController
         interpolationPoints.removeAll()
     }
     
-    func clear()
+    @objc func clear()
     {
         scene.rootNode.childNodes.filter( {$0.geometry != nil} ).forEach
         {
-                $0.removeFromParentNode()
+            print("$0",$0)
+            $0.removeFromParentNode()
         }
     }
     
@@ -198,6 +238,9 @@ class ViewController: UIViewController
         buttonBar.frame = CGRect(x: 0, y: view.frame.height - toolbarHeight, width: view.frame.width, height: toolbarHeight)
     }
     
+    //
+    // Set Portrait mode.
+    //
     override var supportedInterfaceOrientations:UIInterfaceOrientationMask
     {
         return UIInterfaceOrientationMask.portrait
