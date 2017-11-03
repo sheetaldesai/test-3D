@@ -14,6 +14,7 @@
 		1333BABB1FAC005E00871528 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1333BAB91FAC005E00871528 /* LaunchScreen.storyboard */; };
 		1333BAC61FAC005E00871528 /* test_3dTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333BAC51FAC005E00871528 /* test_3dTests.swift */; };
 		1333BAD11FAC005E00871528 /* test_3dUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333BAD01FAC005E00871528 /* test_3dUITests.swift */; };
+		1333BADF1FAC167E00871528 /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1333BADE1FAC167E00871528 /* UIBezierPathExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1333BACC1FAC005E00871528 /* test-3dUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "test-3dUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1333BAD01FAC005E00871528 /* test_3dUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_3dUITests.swift; sourceTree = "<group>"; };
 		1333BAD21FAC005E00871528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1333BADE1FAC167E00871528 /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				1333BAB01FAC005E00871528 /* AppDelegate.swift */,
 				1333BAB21FAC005E00871528 /* ViewController.swift */,
+				1333BADE1FAC167E00871528 /* UIBezierPathExtension.swift */,
 				1333BAB41FAC005E00871528 /* Main.storyboard */,
 				1333BAB71FAC005E00871528 /* Assets.xcassets */,
 				1333BAB91FAC005E00871528 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1333BADF1FAC167E00871528 /* UIBezierPathExtension.swift in Sources */,
 				1333BAB31FAC005E00871528 /* ViewController.swift in Sources */,
 				1333BAB11FAC005E00871528 /* AppDelegate.swift in Sources */,
 			);
